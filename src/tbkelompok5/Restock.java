@@ -33,11 +33,6 @@ public class Restock {
 			System.out.println("------------------------------------");
 			Laman.lamanFasilitas();
 		}
-		else {
-			System.out.println(" > Restock Barang Gagal <");
-			restock();
-			
-		}
 		
 	}
 }

@@ -30,7 +30,7 @@ public class RestockManager {
 	}
 	
 	
-	//	Menambah stock barang
+	//	Menambah Stock Barang
 	public Integer restock(String sku, Integer restock) {
 		
 		Integer masuk = 0;
@@ -38,7 +38,6 @@ public class RestockManager {
 			
 		try {
 			
-			//	Cek SKU barang
 			String cek = "SELECT * FROM barang WHERE sku=?";
 			statement = conn.prepareStatement(cek);
 			statement.setString(1, sku);
