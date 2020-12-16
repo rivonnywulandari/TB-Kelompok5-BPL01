@@ -14,7 +14,7 @@ public class Laman {
 		Integer pilihan = 0;
 		
 		System.out.println("+============================+");
-		System.out.println("|     Toko BPL Kelompok 5    |");
+		System.out.println("|      SUPERMARKET XYZ       |");
 		System.out.println("+============================+");
 		System.out.println("|"+date+"|");
 		System.out.println("+----------------------------+");
@@ -197,6 +197,21 @@ public class Laman {
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
 			pengelolaanBarang();
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tungguu() {
+		
+		InputStreamReader streamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(streamReader);
+        
+        try {
+        	System.out.print("\nKlik Enter Untuk Lanjut");
+        	String lanjut = (bufferedReader.readLine());
+			pengelolaanUser();
     		
 		} catch (Exception e) {
 			e.printStackTrace();
