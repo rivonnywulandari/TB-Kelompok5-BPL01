@@ -106,7 +106,7 @@ public class User implements PengelolaanData {
 			edit();
 		}
 
-		Laman.tunggu();
+		Laman.tungguu();
 	}
 
 
@@ -129,7 +129,7 @@ public class User implements PengelolaanData {
 			Laman.lamanFasilitas();
 		}
 		
-		Laman.tunggu();
+		Laman.tungguu();
 	}
 
 
@@ -145,21 +145,22 @@ public class User implements PengelolaanData {
 
 		ArrayList<UserData> searchList = userManager.search(search);
 		
-		System.out.print("Username");
-        System.out.print("\t\t");
-        System.out.print("Login terakhir");
-        System.out.print("\t\t");
-        System.out.println("Email");
+		System.out.println("+=============================================================+");
+       	System.out.println("|             PENCARIAN USER SUPERMARKET XYZ                  |");
+		System.out.println("+=============================================================+");
+		String format1 = "|%-20s| %-15s | %-20s |\n";
+		System.out.printf(format1, "Username", "Login Terakhir", "Email");
+		System.out.println("+=============================================================+");
+
 		
 		for(UserData userData : searchList){
-            System.out.print(userData.username);
-            System.out.print("\t\t");
-            System.out.print(userData.date);
-            System.out.print("\t\t");
-            System.out.println(userData.email);
+    	String format = "|%-20s| %-15s | %-20s |\n";
+    	System.out.printf(format, userData.username, userData.date, userData.email );
+    	System.out.println("|-------------------------------------------------------------|");
+
         }
 		
-		Laman.tunggu();
+		Laman.tungguu();
 
 	}
 
@@ -171,24 +172,22 @@ public class User implements PengelolaanData {
 		System.out.println("-------LIHAT DAFTAR USER-------");
 
 		TreeMap<String, UserData> userList = userManager.lihat();
-		
-		System.out.print("Username");
-        System.out.print("\t\t");
-        System.out.print("Login terakhir");
-        System.out.print("\t\t");
-        System.out.println("Email");
+		System.out.println("+=============================================================+");
+       	System.out.println("|             DAFTAR USER SUPERMARKET XYZ                     |");
+		System.out.println("+=============================================================+");
+		String format1 = "|%-20s| %-15s | %-20s |\n";
+		System.out.printf(format1, "Username", "Login Terakhir", "Email");
+		System.out.println("+=============================================================+");
         
         for(Map.Entry list : userList.descendingMap().entrySet()){
             UserData listUser = (UserData) list.getValue();
             
-            System.out.print(list.getKey());
-            System.out.print("\t\t");
-            System.out.print(listUser.date);
-            System.out.print("\t\t");
-            System.out.println(listUser.email);
+        String format = "|%-20s| %-15s | %-20s |\n";
+        System.out.printf(format, list.getKey(), listUser.date, listUser.email);
+        System.out.println("|-------------------------------------------------------------|");
         }
 		
-		Laman.tunggu();
+		Laman.tungguu();
 
 	}
 }
