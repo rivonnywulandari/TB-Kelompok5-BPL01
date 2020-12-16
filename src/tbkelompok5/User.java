@@ -106,7 +106,7 @@ public class User implements PengelolaanData {
 			edit();
 		}
 
-		Laman.tungguu();
+		Laman.tunggu();
 	}
 
 
@@ -129,7 +129,7 @@ public class User implements PengelolaanData {
 			Laman.lamanFasilitas();
 		}
 		
-		Laman.tungguu();
+		Laman.tunggu();
 	}
 
 
@@ -160,7 +160,7 @@ public class User implements PengelolaanData {
 
         }
 		
-		Laman.tungguu();
+		Laman.tunggu();
 
 	}
 
@@ -187,7 +187,7 @@ public class User implements PengelolaanData {
         System.out.println("|-------------------------------------------------------------|");
         }
 		
-		Laman.tungguu();
+		Laman.tunggu();
 
 	}
 }

@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class Laman {
 	static Date date = new Date();
 	static Scanner scn = new Scanner(System.in);
@@ -55,7 +54,7 @@ public class Laman {
 					Laman.pengelolaanBarang();
 					break;
 				case 3:
-//					Laman.pengelolaanRestock();
+					Laman.pengelolaanRestock();
 					break;
 				case 4:
 					
@@ -177,6 +176,18 @@ public class Laman {
 		} while (option !=0);
 	}
 	
+	public static void pengelolaanRestock() {
+		
+		System.out.println("+---------------------------------+");
+		System.out.println("|   PENGELOLAAN RESTOCK BARANG    |");
+		System.out.print("+---------------------------------+");
+		
+		Restock rstck = new Restock();
+		
+		rstck.restock();
+		
+	}
+	
 	public static void tunggu() {
 		
 		InputStreamReader streamReader = new InputStreamReader(System.in);
@@ -191,22 +202,5 @@ public class Laman {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	public static void tungguu() {
-		
-		InputStreamReader streamReader = new InputStreamReader(System.in);
-        BufferedReader bufferedReader = new BufferedReader(streamReader);
-        
-        try {
-        	System.out.print("\nKlik Enter Untuk Lanjut");
-        	String lanjut = (bufferedReader.readLine());
-			pengelolaanUser();
-    		
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
 	
 }
