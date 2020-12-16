@@ -27,7 +27,7 @@ public class Barang implements PengelolaanData{
 	
 	@Override
 	public void tambah() {
-
+		lihat();
 		System.out.println(" ");
 		System.out.println("-------TAMBAH BARANG--------");
 		

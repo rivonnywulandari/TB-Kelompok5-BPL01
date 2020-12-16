@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 16 Des 2020 pada 19.54
+-- Generation Time: 16 Des 2020 pada 20.13
 -- Versi Server: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -44,7 +44,10 @@ INSERT INTO `barang` (`sku`, `nama`, `stock`, `harga_beli`, `harga_jual`) VALUES
 ('B001', 'Hatomugi Toner', 50, 100000, 110000),
 ('B002', 'St. Ives', 20, 50000, 55000),
 ('B003', 'Nivea Face Oil', 102, 45000, 50000),
-('B004', 'Emina Cheeklit', 25, 30000, 33000);
+('B004', 'Emina Cheeklit', 25, 30000, 33000),
+('B005', 'Wardah Refil', 50, 40000, 46000),
+('B006', 'Makeover Silky', 30, 100000, 105000),
+('B007', 'Elsheskin Serum', 15, 150000, 180000);
 
 -- --------------------------------------------------------
 
