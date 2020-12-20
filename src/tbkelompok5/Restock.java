@@ -31,7 +31,7 @@ public class Restock {
 		System.out.print("Restock Barang \t: ");
 		Integer restock = scn.nextInt();
 		
-		if(restockManager.restock(sku, restock) == 1) {
+		if(restockManager.restock(sku, restock) > 0) {
 			System.out.println(" > Restock Barang Berhasil <");
 			System.out.println("------------------------------------");
 			Laman.lamanFasilitas();
