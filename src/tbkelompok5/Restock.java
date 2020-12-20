@@ -6,6 +6,7 @@ public class Restock {
 
 	Scanner scn = new Scanner(System.in);
 	RestockManager restockManager;
+	Barang barang = new Barang();
 	
 	public Restock() {
 		try {
@@ -18,6 +19,8 @@ public class Restock {
 	
 	//	Restock
 	public void restock() {
+		
+		barang.lihat();  
 		
 		System.out.println(" ");
 		System.out.println("-----------RESTOCK BARANG----------");
