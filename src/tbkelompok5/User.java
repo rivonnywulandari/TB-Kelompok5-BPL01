@@ -26,10 +26,77 @@ public class User implements PengelolaanData {
 		}
 	}
 	
-	//random string 
+	//Random string 
+	public String randomString() {
+		
+	    char[] randomm= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
+		StringBuilder builder = new StringBuilder();
+		String result = null;
 
+		for(Integer i=0; i<15; i++) {
+			
+			Character chara = randomm[random.nextInt(randomm.length)];
+			builder.append(chara);
+			
+		}
+
+		result = builder.toString();
+		builder.delete(0, 15);
+	    return result;
+		
+	}
 	
 	// Login
+	public void login() {
+		
+   	boolean loginn = false;
+    	
+    	for(int n=0; n <3; n++)
+    	{
+    		System.out.println("");
+    		System.out.println("-----------SIGN IN-----------");
+
+    		System.out.print("Masukkan username : ");
+    		String username = scn.next();
+
+    		System.out.print("Masukkan password : ");
+    		String password = scn.next();
+
+    		String dated = String.format("%tF", date);
+
+    		userData = new UserData(username, dated, password);
+
+    		if(userManager.login(userData) > 0) {
+    			System.out.println("Login berhasil");
+    			Laman.lamanFasilitas();
+    			loginn= true;
+    			break;
+    		}
+
+    		if (loginn == false){
+
+    			if(n >= 2){ 
+    				
+    				System.out.println("3 kesempatan telah terpakai");
+
+					if(userManager.resett(userData) > 0) {
+						
+						System.out.println("Password berhasil diperbarui");
+						Laman.lamanFasilitas();
+						
+					} else { 
+						
+						System.out.println("Password gagal diperbarui");
+						
+					}
+
+					Laman.lamanUtama();	
+
+			    }
+			}
+		}
+
+	}
 
 
 	// Register data

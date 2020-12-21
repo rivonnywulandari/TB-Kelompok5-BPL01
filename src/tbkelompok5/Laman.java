@@ -36,7 +36,7 @@ public class Laman {
 		System.out.println("+----------------------Fasilitas----------------------+");
 		System.out.println("| 1. Fasilitas Pengelolaan User                       |");
 		System.out.println("| 2. Fasilitas Pengelolaan Data Master Barang         |");
-		System.out.println("| 3. Fasilitas Restok Barang                          |");
+		System.out.println("| 3. Fasilitas Restock Barang                         |");
 		System.out.println("| 4. Fasilitas Pengelolaan Transaksi Penjualan Barang |");
 		System.out.println("| 5. Fasilitas Laporan                                |");
 		System.out.println("| 6. Logout                                           |");
@@ -140,6 +140,7 @@ public class Laman {
 	}
 	
 	public static void pengelolaanBarang() {
+		
 		Integer option = 0;
 		Scanner scanner = new Scanner (System.in);
 		Barang barang = new Barang();
@@ -199,7 +200,7 @@ public class Laman {
 	
 	public static void pengelolaanTransaksi(){
 
-		Transaksi transaksi = new Transaksi();
+//		Transaksi transaksi = new Transaksi();
 		
 		
 			System.out.print("\n");
@@ -209,7 +210,7 @@ public class Laman {
 		
 			
 				
-					transaksi.penjualan();
+//					transaksi.penjualan();
 				
 
 			
@@ -218,6 +219,7 @@ public class Laman {
 	}
 
 	public static void pengelolaanLaporan() throws SQLException, ParseException{
+		
 		Integer pilih = 0;
 		Scanner in = new Scanner (System.in);
 		
@@ -236,8 +238,8 @@ public class Laman {
 			
 				switch(pilih) {
 				case 1: 
-					Transaksi transaksi = new Transaksi();
-					transaksi.laporan_penjualan();	
+//					Transaksi transaksi = new Transaksi();
+//					transaksi.laporan_penjualan();	
 				
 				pengelolaanLaporan();
 				break;	
@@ -261,9 +263,17 @@ public class Laman {
 		} catch (InputMismatchException e) {
 				System.out.println("Pilihan tidak tersedia");
 				lamanFasilitas();
+		}
+		
+		
+		
 	}
+	
+	public static void tunggu() {
 		
-		
+	}
+	
+	public static void tungguu() {
 		
 	}
 	
