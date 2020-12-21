@@ -218,8 +218,53 @@ public class Laman {
 	}
 
 	public static void pengelolaanLaporan() throws SQLException, ParseException{
-		Transaksi transaksi = new Transaksi();
-		transaksi.laporan_penjualan();
+		Integer pilih = 0;
+		Scanner in = new Scanner (System.in);
+		
+			System.out.print("\n");
+			System.out.println("+---------------------------------+");
+			System.out.println("|       FASILITAS LAPORAN         |");
+			System.out.println("+---------------------------------+");
+			System.out.println("| 1. Laporan Penjualan            |");
+			System.out.println("| 2. Laporan Keuntungan           |");
+			System.out.println("| 3. Menu Utama                   |");
+			System.out.println("+---------------------------------+");
+			System.out.print("Masukkan Pilihan ('1'|'2'|): ");
+			
+			try {	
+			 pilih = in.nextInt();
+			
+				switch(pilih) {
+				case 1: 
+					Transaksi transaksi = new Transaksi();
+					transaksi.laporan_penjualan();	
+				
+				pengelolaanLaporan();
+				break;	
+					
+				case 2:
+				System.out.println("+---------------------------------+");
+				System.out.println("|       LAPORAN KEUNTUNGAN        |");
+				System.out.println("+---------------------------------+");
+				pengelolaanLaporan();
+				break;
+				
+				case 3:
+					lamanFasilitas();
+					
+				default:
+					System.out.println("Pilihan tidak tersedia");
+					pengelolaanLaporan();
+					break;
+			}
+				
+		} catch (InputMismatchException e) {
+				System.out.println("Pilihan tidak tersedia");
+				lamanFasilitas();
+	}
+		
+		
+		
 	}
 	public static void tunggu() {
 		
