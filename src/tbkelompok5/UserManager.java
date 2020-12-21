@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.TreeMap;
 
 
+
 public class UserManager {
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://localhost/tugasbesarbpl?serverTimezone=Asia/Jakarta";
@@ -180,6 +181,24 @@ public class UserManager {
 		
 	}
 	
+	public Integer resett(UserData userData) {	
+		Integer reset = 0;
+		user = new User();
+		try {
+			
+			String resett = "UPDATE user SET password=? WHERE username =?";
+			PreparedStatement statement;
+			statement = conn.prepareStatement(resett);
+			statement.setString(1, user.randomString());
+			statement.setString(2, userData.username);
+			statement.executeUpdate();
+			
+			System.out.println("Password anda telah direset");
+		} catch (SQLException e) {
+			System.out.println("Terjadi kesalahan");
+		}
+		return reset;
+	}	
 	
 	//	Hapus akun
 	public Integer deleteData() {

@@ -1,6 +1,8 @@
 package tbkelompok5;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -34,7 +36,7 @@ public class Laman {
 		System.out.println("+----------------------Fasilitas----------------------+");
 		System.out.println("| 1. Fasilitas Pengelolaan User                       |");
 		System.out.println("| 2. Fasilitas Pengelolaan Data Master Barang         |");
-		System.out.println("| 3. Fasilitas Restock Barang                         |");
+		System.out.println("| 3. Fasilitas Restok Barang                          |");
 		System.out.println("| 4. Fasilitas Pengelolaan Transaksi Penjualan Barang |");
 		System.out.println("| 5. Fasilitas Laporan                                |");
 		System.out.println("| 6. Logout                                           |");
@@ -57,9 +59,16 @@ public class Laman {
 					Laman.pengelolaanRestock();
 					break;
 				case 4:
-					
+					Laman.pengelolaanTransaksi();
+					break;
 				case 5:
-					
+				try {
+					Laman.pengelolaanLaporan();
+				} catch (SQLException | ParseException e) {
+	
+					e.printStackTrace();
+				}
+					break;
 				case 6:
 					System.out.println("Logout berhasil");
 					System.out.println("\n");
@@ -187,48 +196,31 @@ public class Laman {
 		rstck.restock();
 		
 	}
+	
 	public static void pengelolaanTransaksi(){
-		Integer option = 0;
-		Scanner scanner = new Scanner (System.in);
+
 		Transaksi transaksi = new Transaksi();
 		
-		do {
+		
 			System.out.print("\n");
 			System.out.println("+---------------------------------------+");
 			System.out.println("|          PENGELOLAAN TRANSAKSI        |");
 			System.out.println("+---------------------------------------+");
-			
-			option = Integer.parseInt(scanner.nextLine());
-			
-			switch(option) {
-			case 1:
-				System.out.print(">>LIHAT TRANSAKSI");
-				transaksi.penjualan();
-				break;
-//			case 2:
-//				transaksi.tambah();
-//				break;
-//			case 3:
-//				transaksi.hapus();
-//				break;
-//			case 4:
-//				transaksi.updateTransaksi();
-//				break;
-//			case 5:
-//				transaksi.cari();
-//				break;
-			case 0:
-				lamanFasilitas();
-				break;
-			default:
-				System.out.println("Input Tidak Valid");
-				
-			}
-			tungguuu();
 		
-		} while (option !=0);
+			
+				
+					transaksi.penjualan();
+				
+
+			//tungguuu();
+		
+		
 	}
 
+	public static void pengelolaanLaporan() throws SQLException, ParseException{
+		Transaksi transaksi = new Transaksi();
+		transaksi.laporan_penjualan();
+	}
 	public static void tunggu() {
 		
 		InputStreamReader streamReader = new InputStreamReader(System.in);
@@ -253,11 +245,12 @@ public class Laman {
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
 			pengelolaanUser();
-    		 
+    		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 	public static void tungguuu() {
 		
 		InputStreamReader streamReader = new InputStreamReader(System.in);
@@ -266,11 +259,10 @@ public class Laman {
         try {
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
-			pengelolaanTransaksi();
+			Laman.lamanFasilitas();
     		
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 }
