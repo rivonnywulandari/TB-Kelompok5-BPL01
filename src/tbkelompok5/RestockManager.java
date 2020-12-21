@@ -21,10 +21,14 @@ public class RestockManager {
 	public RestockManager(){
 		
 		try {
+			
 			Class.forName(JDBC_DRIVER);
 			conn = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+			
 		} catch (SQLException | ClassNotFoundException e) {
+			
 			System.out.println("Koneksi tidak tersambung");
+			
 		}
 		
 	}
@@ -60,7 +64,9 @@ public class RestockManager {
 			}
 			
 		} catch (SQLException e) {
+			
 			System.out.println("Terjadi kesalahan");
+			
 		}
 		
 		return masuk;

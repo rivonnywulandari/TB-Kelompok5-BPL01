@@ -67,10 +67,12 @@ public class User implements PengelolaanData {
     		userData = new UserData(username, dated, password);
 
     		if(userManager.login(userData) > 0) {
+    			
     			System.out.println("Login berhasil");
     			Laman.lamanFasilitas();
     			loginn= true;
     			break;
+    			
     		}
 
     		if (loginn == false){
@@ -123,8 +125,10 @@ public class User implements PengelolaanData {
 		userData = new UserData(username, dt, email, password);
 		
 		if(userManager.register(userData,confirm) > 0) {
+			
 			System.out.println("Akun berhasil dibuat");
 			login();
+			
 		}
 
 	}
@@ -144,11 +148,15 @@ public class User implements PengelolaanData {
 		String passwordBaru = scn.next();
 		
 		if(userManager.updateData(passwordLama, passwordBaru) > 0) {
+			
 			System.out.println("Password berhasil diperbarui");
 			Laman.lamanFasilitas();
+			
 		} else { 
+			
 			System.out.println("Password gagal diperbarui");
 			edit();
+			
 		}
 
 		Laman.tungguu();
@@ -166,12 +174,18 @@ public class User implements PengelolaanData {
 		String lanjut = scn.next();
 
 		if (lanjut.equalsIgnoreCase("Y")) {
+			
 			if(userManager.deleteData() > 0) {
+				
 				System.out.println("Akun berhasil di hapus\n\n");
 				Program.main(null);
+				
 			}
-		} else{
+			
+		} else {
+			
 			Laman.lamanFasilitas();
+			
 		}
 		
 		Laman.tungguu();
@@ -213,6 +227,7 @@ public class User implements PengelolaanData {
 	// Lihat daftar akun user
 	@Override
 	public void lihat(){
+		
 		System.out.println(" ");
 		System.out.println("-------LIHAT DAFTAR USER-------");
 
@@ -225,11 +240,13 @@ public class User implements PengelolaanData {
 		System.out.println("+=============================================================+");
         
         for(Map.Entry list : userList.descendingMap().entrySet()){
+        	
             UserData listUser = (UserData) list.getValue();
             
         String format = "|%-20s| %-15s | %-20s |\n";
         System.out.printf(format, list.getKey(), listUser.date, listUser.email);
         System.out.println("|-------------------------------------------------------------|");
+        
         }
 		
 		Laman.tungguu();

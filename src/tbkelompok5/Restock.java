@@ -23,6 +23,9 @@ public class Restock {
 	//	Restock
 	public void restock() {
 		
+		Barang barang = new Barang();
+		barang.lihat();
+		
 		System.out.println(" ");
 		System.out.println("-----------RESTOCK BARANG----------");
 		
@@ -32,12 +35,23 @@ public class Restock {
 		System.out.print("Restock Barang \t: ");
 		Integer restock = scn.nextInt();
 		
-		if(restockManager.restock(sku, restock) > 0) {
+		if(restock > 0) {
 			
-			System.out.println("Restock Barang Berhasil ");
+			if(restockManager.restock(sku, restock) > 0) {
+			
+				System.out.println("Restock Barang Berhasil ");
+				System.out.println("------------------------------------");
+				Laman.lamanFasilitas();
+			
+			}
+			
+		}
+		
+		else {
+			
+			System.out.println("Restock Barang Tidak Berhasil ");
 			System.out.println("------------------------------------");
 			Laman.lamanFasilitas();
-			
 		}
 		
 	}

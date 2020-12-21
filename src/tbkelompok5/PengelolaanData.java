@@ -1,6 +1,7 @@
 package tbkelompok5;
 
 public interface PengelolaanData {
+	
 	public void tambah();
 	
 	public void edit();
