@@ -26,71 +26,10 @@ public class User implements PengelolaanData {
 		}
 	}
 	
-	public String randomString() {
-	    char[] randomm= "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".toCharArray();
-		StringBuilder builder = new StringBuilder();
-		String result = null;
-		
-		for(Integer i=0; i<15; i++) {
-			Character chara = randomm[random.nextInt(randomm.length)];
-			builder.append(chara);
-		}
-		
-		result = builder.toString();
-		builder.delete(0, 15);
-	    return result;
-	}
+	//random string 
+
 	
 	// Login
-    public void login() {
-    	boolean loginn = false;
-    	for(int n=0; n <3; n++){
-    	System.out.println("");
-		System.out.println("-----------SIGN IN-----------");
-		
-
-    	System.out.print("Masukkan username : ");
-		String username = scn.next();
-		
-		System.out.print("Masukkan password : ");
-		String password = scn.next();
-
-		String dated = String.format("%tF", date);
-
-		userData = new UserData(username, dated, password);
-		
-		if(userManager.login(userData) == 1) {
-			System.out.println("Login berhasil");
-			Laman.lamanFasilitas();
-			loginn= true;
-			break;
-
-			
-		}
-//		else {
-//			System.out.println("Masukkan Username atau Password Yang Benar");
-//			login();
-//		}
-		if (loginn == false){
-			// If n== 2, 3 attemps made(n starts at 0) and we should exit
-			if(n >= 2){ // can also say if(n==2)
-				System.out.println("3 kesempatan telah terpakai");
-				
-			        
-					if(userManager.resett(userData) == 1) {
-						System.out.println("Password berhasil diperbarui");
-						Laman.lamanFasilitas();
-					} else { 
-//						System.out.println("Password gagal diperbarui");
-					}
-
-					Laman.lamanUtama();	
-
-			    }
-			}
-		}
-
-    	}
 
 
 	// Register data

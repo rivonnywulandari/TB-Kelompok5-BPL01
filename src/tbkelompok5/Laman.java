@@ -266,48 +266,7 @@ public class Laman {
 		
 		
 	}
-	public static void tunggu() {
-		
-		InputStreamReader streamReader = new InputStreamReader(System.in);
-        BufferedReader bufferedReader = new BufferedReader(streamReader);
-        
-        try {
-        	System.out.print("\nKlik Enter Untuk Lanjut");
-        	String lanjut = (bufferedReader.readLine());
-			pengelolaanBarang();
-    		
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public static void tungguu() {
-		
-		InputStreamReader streamReader = new InputStreamReader(System.in);
-        BufferedReader bufferedReader = new BufferedReader(streamReader);
-        
-        try {
-        	System.out.print("\nKlik Enter Untuk Lanjut");
-        	String lanjut = (bufferedReader.readLine());
-			pengelolaanUser();
-    		
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	public static void tungguuu() {
-		
-		InputStreamReader streamReader = new InputStreamReader(System.in);
-        BufferedReader bufferedReader = new BufferedReader(streamReader);
-        
-        try {
-        	System.out.print("\nKlik Enter Untuk Lanjut");
-        	String lanjut = (bufferedReader.readLine());
-			Laman.lamanFasilitas();
-    		
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
