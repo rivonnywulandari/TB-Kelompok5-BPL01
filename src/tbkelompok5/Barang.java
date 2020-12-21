@@ -15,6 +15,7 @@ public class Barang implements PengelolaanData{
 	BarangManager barangManager;
 	
 	public Barang() {
+		
 		try {
 			
 			barangManager = new BarangManager();
@@ -27,6 +28,7 @@ public class Barang implements PengelolaanData{
 	
 	@Override
 	public void tambah() {
+		
 		lihat();
 		System.out.println(" ");
 		System.out.println("-------TAMBAH BARANG--------");
@@ -57,7 +59,8 @@ public class Barang implements PengelolaanData{
 
 	@Override
 	public void edit() {
-	lihat();  
+		
+		lihat();  
 		System.out.println("-------EDIT BARANG--------");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Masukan SKU yang akan diedit: ");
@@ -109,6 +112,7 @@ public class Barang implements PengelolaanData{
 	@Override
 	
 	public void cari(){
+		
 		System.out.println(">>PENCARIAN BARANG");
 		
 		System.out.print("Masukkan Kunci (Nama): ");
@@ -151,7 +155,8 @@ public class Barang implements PengelolaanData{
 			String format = "|%-4s| %-20s | %-6s | Rp%-11s | Rp%-11s|\n";
 			System.out.printf(format, barangData.getSku(), barangData.getNama(), barangData.getStock(), barangData.getHarga_beli(), barangData.getHarga_jual());
 			System.out.println("|-------------------------------------------------------------------|");
-	}
+			
+		}
 		
 	}
 

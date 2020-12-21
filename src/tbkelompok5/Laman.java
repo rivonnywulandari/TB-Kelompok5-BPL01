@@ -8,6 +8,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Laman {
+	
 	static Date date = new Date();
 	static Scanner scn = new Scanner(System.in);
 	
@@ -82,8 +83,10 @@ public class Laman {
 			}
 			
 		} catch (InputMismatchException e) {
+			
 			System.out.println("Pilihan tidak tersedia");
 			lamanFasilitas();
+			
 		}
 		
 	}
@@ -234,6 +237,7 @@ public class Laman {
 			System.out.print("Masukkan Pilihan ('1'|'2'|'3'|): ");
 			
 			try {	
+				
 			 pilih = in.nextInt();
 			
 				switch(pilih) {
@@ -261,8 +265,10 @@ public class Laman {
 			}
 				
 		} catch (InputMismatchException e) {
+			
 				System.out.println("Pilihan tidak tersedia");
 				lamanFasilitas();
+				
 		}
 		
 		
