@@ -146,35 +146,35 @@ public class Transaksi {
 	
 	
 	
-	public static void tbstock() throws SQLException{
-//		conn();
-		Scanner sc = new Scanner (System.in);
-		System.out.println("\nKet : Input SKU barang yang ingin diedit");
-		System.out.println("<< RE-STOCK BARANG >>");
-		System.out.println("___________________________");
-		System.out.print  ("SKU Barang\t: ");
-		int sku = sc.nextInt();
-		
-		try {
-			stmt = conn.createStatement();
-			String sql = "SELECT * FROM barang WHERE sku = '"+sku+"'";
-			ResultSet result = stmt.executeQuery(sql);
-			if (result.next()) {
-				String id = result.getString(sku);
-				Integer stok_db = result.getInt("stok");
-				System.out.print("Penambahan\t : ");
-				Integer tambah = sc.nextInt();
-				int newstock = Integer.valueOf(stok_db)+Integer.valueOf(tambah);
-				String sql2 = "UPDATE barang SET stock = '"+newstock+"' WHERE sku='"+sku+"'";
-				stmt.execute(sql2);
-				stmt.close();
-			}
-			System.out.println("___________________________");
-			System.out.println("[Barang BERHASIL di TAMBAH !]\n");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-	}
+//	public static void tbstock() throws SQLException{
+////		conn();
+//		Scanner sc = new Scanner (System.in);
+//		System.out.println("\nKet : Input SKU barang yang ingin diedit");
+//		System.out.println("<< RE-STOCK BARANG >>");
+//		System.out.println("___________________________");
+//		System.out.print  ("SKU Barang\t: ");
+//		int sku = sc.nextInt();
+//		
+//		try {
+//			stmt = conn.createStatement();
+//			String sql = "SELECT * FROM barang WHERE sku = '"+sku+"'";
+//			ResultSet result = stmt.executeQuery(sql);
+//			if (result.next()) {
+//				String id = result.getString(sku);
+//				Integer stok_db = result.getInt("stok");
+//				System.out.print("Penambahan\t : ");
+//				Integer tambah = sc.nextInt();
+//				int newstock = Integer.valueOf(stok_db)+Integer.valueOf(tambah);
+//				String sql2 = "UPDATE barang SET stock = '"+newstock+"' WHERE sku='"+sku+"'";
+//				stmt.execute(sql2);
+//				stmt.close();
+//			}
+//			System.out.println("___________________________");
+//			System.out.println("[Barang BERHASIL di TAMBAH !]\n");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//	}
 }
 
