@@ -312,7 +312,27 @@ public class Laman {
 			e.printStackTrace();
 			
 		}
+        
 	}
 		
+	public static void tungguuu() {
+		
+		InputStreamReader streamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(streamReader);
+        
+        try {
+        	
+        	System.out.print("\nKlik Enter Untuk Lanjut");
+        	String lanjut = (bufferedReader.readLine());
+			pengelolaanTransaksi();
+			
+    		
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+			
+		}
+        
+	}
 	
 }
