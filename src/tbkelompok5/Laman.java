@@ -212,7 +212,7 @@ public class Laman {
 					transaksi.penjualan();
 				
 
-			//tungguuu();
+			
 		
 		
 	}
@@ -229,7 +229,7 @@ public class Laman {
 			System.out.println("| 2. Laporan Keuntungan           |");
 			System.out.println("| 3. Menu Utama                   |");
 			System.out.println("+---------------------------------+");
-			System.out.print("Masukkan Pilihan ('1'|'2'|): ");
+			System.out.print("Masukkan Pilihan ('1'|'2'|'3'|): ");
 			
 			try {	
 			 pilih = in.nextInt();
