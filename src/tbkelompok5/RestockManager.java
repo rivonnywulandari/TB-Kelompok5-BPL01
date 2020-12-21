@@ -35,7 +35,7 @@ public class RestockManager {
 		
 		Integer masuk = 0;
 		Restock rstck = new Restock();
-			
+
 		try {
 			
 			String cek = "SELECT * FROM barang WHERE sku=?";

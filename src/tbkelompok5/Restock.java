@@ -31,11 +31,19 @@ public class Restock {
 		System.out.print("Restock Barang \t: ");
 		Integer restock = scn.nextInt();
 		
-		if(restockManager.restock(sku, restock) > 0) {
-			System.out.println(" > Restock Barang Berhasil <");
-			System.out.println("------------------------------------");
-			Laman.lamanFasilitas();
-		}
+		if (restock > 0 ) {	
 		
+			if(restockManager.restock(sku, restock) > 0) {
+				System.out.println(" > Restock Barang Berhasil <");
+				System.out.println("------------------------------------");
+				Laman.lamanFasilitas();
+			}
+		
+		}
+		else {
+			System.out.println(" > Restock Barang Tidak Berhasil <");
+			System.out.println("------------------------------------");
+			Laman.pengelolaanRestock();
+		}
 	}
 }

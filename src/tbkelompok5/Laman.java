@@ -34,7 +34,7 @@ public class Laman {
 		System.out.println("+----------------------Fasilitas----------------------+");
 		System.out.println("| 1. Fasilitas Pengelolaan User                       |");
 		System.out.println("| 2. Fasilitas Pengelolaan Data Master Barang         |");
-		System.out.println("| 3. Fasilitas Restock Barang                          |");
+		System.out.println("| 3. Fasilitas Restock Barang                         |");
 		System.out.println("| 4. Fasilitas Pengelolaan Transaksi Penjualan Barang |");
 		System.out.println("| 5. Fasilitas Laporan                                |");
 		System.out.println("| 6. Logout                                           |");
