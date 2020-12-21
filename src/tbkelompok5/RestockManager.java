@@ -13,7 +13,7 @@ public class RestockManager {
 	static final String DB_URL = "jdbc:mysql://localhost/tugasbesarbpl?serverTimezone=Asia/Jakarta";
 	static final String USERNAME = "root";
 	static final String PASSWORD = "";
-	
+	 
 	static Connection conn;
 	static Statement stmt;
 	static PreparedStatement statement;

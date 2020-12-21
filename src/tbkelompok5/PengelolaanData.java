@@ -6,7 +6,7 @@ public interface PengelolaanData {
 	public void edit();
 	
 	public void hapus();
-	
+	 
 	public void cari();
 	
 	public void lihat();

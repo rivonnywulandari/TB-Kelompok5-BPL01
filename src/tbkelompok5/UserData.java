@@ -10,7 +10,7 @@ public class UserData {
 	static String pass;
 	
 	public UserData() {
-		
+		 
 	}
 	
 	public UserData(String username, String date, String password) {

@@ -11,7 +11,7 @@ public class User implements PengelolaanData {
 	static Date date = new Date();
 	UserData userData;
 	UserManager userManager;
-
+ 
 	
 	public User() {
 		try {

@@ -187,7 +187,48 @@ public class Laman {
 		rstck.restock();
 		
 	}
-	
+	public static void pengelolaanTransaksi(){
+		Integer option = 0;
+		Scanner scanner = new Scanner (System.in);
+		Transaksi transaksi = new Transaksi();
+		
+		do {
+			System.out.print("\n");
+			System.out.println("+---------------------------------------+");
+			System.out.println("|          PENGELOLAAN TRANSAKSI        |");
+			System.out.println("+---------------------------------------+");
+			
+			option = Integer.parseInt(scanner.nextLine());
+			
+			switch(option) {
+			case 1:
+				System.out.print(">>LIHAT TRANSAKSI");
+				transaksi.penjualan();
+				break;
+//			case 2:
+//				transaksi.tambah();
+//				break;
+//			case 3:
+//				transaksi.hapus();
+//				break;
+//			case 4:
+//				transaksi.updateTransaksi();
+//				break;
+//			case 5:
+//				transaksi.cari();
+//				break;
+			case 0:
+				lamanFasilitas();
+				break;
+			default:
+				System.out.println("Input Tidak Valid");
+				
+			}
+			tungguuu();
+		
+		} while (option !=0);
+	}
+
 	public static void tunggu() {
 		
 		InputStreamReader streamReader = new InputStreamReader(System.in);
@@ -212,6 +253,20 @@ public class Laman {
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
 			pengelolaanUser();
+    		 
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	public static void tungguuu() {
+		
+		InputStreamReader streamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(streamReader);
+        
+        try {
+        	System.out.print("\nKlik Enter Untuk Lanjut");
+        	String lanjut = (bufferedReader.readLine());
+			pengelolaanTransaksi();
     		
 		} catch (Exception e) {
 			e.printStackTrace();

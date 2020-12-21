@@ -12,7 +12,7 @@ public class Program {
 			switch (Laman.lamanUtama()) {
 			case 1:
 				user.login();
-				break;
+				break; 
 		
 			case 2:
 				user.tambah();

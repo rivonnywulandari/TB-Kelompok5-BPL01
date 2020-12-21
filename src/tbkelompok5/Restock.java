@@ -7,7 +7,7 @@ public class Restock {
 	Scanner scn = new Scanner(System.in);
 	RestockManager restockManager;
 	Barang barang = new Barang();
-	
+	 
 	public Restock() {
 		try {
 			restockManager = new RestockManager();

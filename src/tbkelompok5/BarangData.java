@@ -10,7 +10,7 @@ public class BarangData {
 	
 	public BarangData() {
 		
-	}
+	} 
 	
 	public BarangData(String sku, String nama, int harga_beli, int harga_jual) {
 		this.sku=sku;

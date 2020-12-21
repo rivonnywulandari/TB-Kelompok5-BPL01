@@ -132,7 +132,7 @@ public class Barang implements PengelolaanData{
 		}
 	
 	}
-
+ 
 	@Override
 	public void lihat() {
 
