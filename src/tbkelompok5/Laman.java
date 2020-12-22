@@ -1,5 +1,6 @@
 package tbkelompok5;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -8,7 +9,6 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Laman {
-	
 	static Date date = new Date();
 	static Scanner scn = new Scanner(System.in);
 	
@@ -16,14 +16,13 @@ public class Laman {
 		
 		Integer pilihan = 0;
 		
-		System.out.println("+============================+");
-		System.out.println("|      SUPERMARKET XYZ       |");
-		System.out.println("+============================+");
-		System.out.println("|"+date+"|");
-		System.out.println("+----------------------------+");
-		System.out.println("| 1. Login                   |");
-		System.out.println("| 2. Register                |");
-		System.out.println("+============================+");
+		System.out.println("+==============================+");
+		System.out.println("|        SUPERMARKET XYZ       |");
+		System.out.println("+==============================+");
+		System.out.println("|  "+date+"|");
+		System.out.println("+------------------------------+");
+		System.out.println("| 1. Login     | 2. Register   |");
+		System.out.println("+==============================+");
 		System.out.print("Masukkan Pilihan ('1'|'2') : ");
 		pilihan = scn.nextInt();
 		
@@ -36,9 +35,9 @@ public class Laman {
 		System.out.println(" ");
 		System.out.println("+----------------------Fasilitas----------------------+");
 		System.out.println("| 1. Fasilitas Pengelolaan User                       |");
-		System.out.println("| 2. Fasilitas Pengelolaan Data Master Barang         |");
-		System.out.println("| 3. Fasilitas Restock Barang                         |");
-		System.out.println("| 4. Fasilitas Pengelolaan Transaksi Penjualan Barang |");
+		System.out.println("| 2. Fasilitas Pengelolaan Barang                     |");
+		System.out.println("| 3. Fasilitas Restok Barang                          |");
+		System.out.println("| 4. Fasilitas Pengelolaan Transaksi                  |");
 		System.out.println("| 5. Fasilitas Laporan                                |");
 		System.out.println("| 6. Logout                                           |");
 		System.out.println("+-----------------------------------------------------+");
@@ -63,12 +62,7 @@ public class Laman {
 					Laman.pengelolaanTransaksi();
 					break;
 				case 5:
-				try {
 					Laman.pengelolaanLaporan();
-				} catch (SQLException | ParseException e) {
-	
-					e.printStackTrace();
-				}
 					break;
 				case 6:
 					System.out.println("Logout berhasil");
@@ -83,10 +77,8 @@ public class Laman {
 			}
 			
 		} catch (InputMismatchException e) {
-			
-			System.out.println("Terjadi kesalahan");
+			System.out.println("Pilihan tidak tersedia");
 			lamanFasilitas();
-			
 		}
 		
 	}
@@ -143,7 +135,6 @@ public class Laman {
 	}
 	
 	public static void pengelolaanBarang() {
-		
 		Integer option = 0;
 		Scanner scanner = new Scanner (System.in);
 		Barang barang = new Barang();
@@ -191,19 +182,21 @@ public class Laman {
 
 	public static void pengelolaanRestock() {
 		
+		System.out.println(" ");
 		System.out.println("+---------------------------------+");
 		System.out.println("|   PENGELOLAAN RESTOCK BARANG    |");
 		System.out.print("+---------------------------------+");
 		
 		Restock rstck = new Restock();
-		
+//		Barang barang = new Barang();
+//		barang.lihat();
 		rstck.restock();
 		
 	}
 	
 	public static void pengelolaanTransaksi(){
 
-//		Transaksi transaksi = new Transaksi();
+		Transaksi transaksi = new Transaksi();
 		
 		
 			System.out.print("\n");
@@ -213,7 +206,7 @@ public class Laman {
 		
 			
 				
-//					transaksi.penjualan();
+					transaksi.penjualan();
 				
 
 			
@@ -221,78 +214,29 @@ public class Laman {
 		
 	}
 
-	public static void pengelolaanLaporan() throws SQLException, ParseException{
-		
-		Integer pilih = 0;
-		Scanner in = new Scanner (System.in);
-		
-			System.out.print("\n");
-			System.out.println("+---------------------------------+");
-			System.out.println("|       FASILITAS LAPORAN         |");
-			System.out.println("+---------------------------------+");
-			System.out.println("| 1. Laporan Penjualan            |");
-			System.out.println("| 2. Laporan Keuntungan           |");
-			System.out.println("| 3. Menu Utama                   |");
-			System.out.println("+---------------------------------+");
-			System.out.print("Masukkan Pilihan ('1'|'2'|'3'|): ");
-			
-			try {	
-				
-			 pilih = in.nextInt();
-			
-				switch(pilih) {
-				case 1: 
-//					Transaksi transaksi = new Transaksi();
-//					transaksi.laporan_penjualan();	
-				
-				pengelolaanLaporan();
-				break;	
-					
-				case 2:
-				System.out.println("+---------------------------------+");
-				System.out.println("|       LAPORAN KEUNTUNGAN        |");
-				System.out.println("+---------------------------------+");
-				pengelolaanLaporan();
-				break;
-				
-				case 3:
-					lamanFasilitas();
-					
-				default:
-					System.out.println("Pilihan tidak tersedia");
-					pengelolaanLaporan();
-					break;
-			}
-				
-		} catch (InputMismatchException e) {
-			
-				System.out.println("Pilihan tidak tersedia");
-				lamanFasilitas();
-				
-		}
-		
-		
-		
-	}
+	public static void pengelolaanLaporan(){
 	
+		}
+
+//	public static void pengelolaanLaporan(){
+//		Transaksi transaksi = new Transaksi();
+//			
+//			transaksi.laporan_penjualan();
+//	}
+
 	public static void tunggu() {
 		
 		InputStreamReader streamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(streamReader);
         
         try {
-        	
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
-			pengelolaanUser();
-			
+			pengelolaanBarang();
     		
 		} catch (Exception e) {
-			
 			e.printStackTrace();
-			
 		}
-		
 	}
 	
 	public static void tungguu() {
@@ -301,38 +245,42 @@ public class Laman {
         BufferedReader bufferedReader = new BufferedReader(streamReader);
         
         try {
-        	
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
-			pengelolaanTransaksi();
-			
+			pengelolaanUser();
     		
 		} catch (Exception e) {
-			
 			e.printStackTrace();
-			
 		}
-        
 	}
-		
+	
 	public static void tungguuu() {
 		
 		InputStreamReader streamReader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(streamReader);
         
         try {
-        	
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
-			pengelolaanTransaksi();
-			
+			Laman.lamanFasilitas();
     		
 		} catch (Exception e) {
-			
 			e.printStackTrace();
-			
 		}
-        
 	}
 	
+	public static void tungguuuu() {
+		
+		InputStreamReader streamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(streamReader);
+        
+        try {
+        	System.out.print("\nKlik Enter Untuk Lanjut");
+        	String lanjut = (bufferedReader.readLine());
+			pengelolaanLaporan();
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }

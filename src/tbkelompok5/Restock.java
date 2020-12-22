@@ -1,5 +1,6 @@
 package tbkelompok5;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Restock {
@@ -31,7 +32,7 @@ public class Restock {
 		
 		System.out.print("Masukkan SKU Yang Akan Di Restock : ");
 		String sku = scn.nextLine();
-		
+		try {
 		System.out.print("Masukkan Jumlah Restock Barang    : ");
 		Integer restock = scn.nextInt();
 		
@@ -51,8 +52,11 @@ public class Restock {
 			
 			System.out.println("                > Restock Barang Tidak Berhasil <              ");
 			System.out.println("---------------------------------------------------------------");
-			Laman.lamanFasilitas();
+			Laman.pengelolaanRestock();
 		}
-		
+	}catch (InputMismatchException e) {
+		System.out.println(" > Masukkan Jumlah Yang Benar <");
+		Laman.pengelolaanRestock();
 	}
+}
 }
