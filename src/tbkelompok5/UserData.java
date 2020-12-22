@@ -6,16 +6,22 @@ public class UserData {
 	String password;
 	String email;
 	String date;
-	static String user; //va
+	static String user; 
 	static String pass;
 	
 	public UserData() {
 		 
 	}
 	
-	public UserData(String username, String date, String password) {
+	public UserData(String username, String date, String email) {
 		this.username = username;
 		this.date = date;
+		this.email = email;
+	}
+	
+	
+	public UserData(String username, String password) {
+		this.username = username;
 		this.password = password;
 	}
 	

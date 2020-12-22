@@ -7,12 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.TreeMap;
-
-
 
 public class UserManager {
-	
 	static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 	static final String DB_URL = "jdbc:mysql://localhost/tugasbesarbpl?serverTimezone=Asia/Jakarta";
 	static final String USERNAME = "root";
@@ -51,13 +47,12 @@ public class UserManager {
 			if(result.next()) {
 				
 				try {
-					String sql = "UPDATE user SET login_terakhir=? WHERE username=?";
+					String sql = "UPDATE user SET login_terakhir= now() WHERE username=?";
 					statement = conn.prepareStatement(sql);
-					statement.setString(1, userData.date);
-					statement.setString(2, userData.username);
+					statement.setString(1, userData.username);
 					login = statement.executeUpdate();
 					
-					if(login == 1) {
+					if(login > 0) {
 						UserData.user = userData.username;
 						UserData.pass = userData.password;
 					}
@@ -67,7 +62,7 @@ public class UserManager {
 				}
 				
 			} else {
-				System.out.println("Username atau Password Salah");
+				System.out.println("Username atau Password Anda Salah");
 			}
 			
 		} catch (SQLException e) {
@@ -78,21 +73,20 @@ public class UserManager {
 	}
 	
 	
-	//	Buat akun
+
 	public Integer register(UserData userData, String confirm) {
 		
 		User user = new User();
 		Integer register = 0;
 		
-		// Melakukan pengecekan validitas email
+
 		if (userData.email.contains("@")) {
 			
-			//	Melakukan pengecekan password
+
 			if(userData.password.equals(confirm)) {
 			
 				try {
 					
-					// Melakukan pengecekan username sudah tersedia atau belum
 					String cek = "SELECT username FROM user WHERE username = ?";
 					statement = conn.prepareStatement(cek);
 					statement.setString(1, userData.username);
@@ -147,24 +141,24 @@ public class UserManager {
 	}
 	
 	
-	//	Update password
-	public Integer updateData(String passwordLama, String passwordBaru) {
+
+	public Integer updateData(String passlama, String passbaru) {
 		
 		Integer update = 0;
 		User user = new User();
 		
-		if (passwordLama.equals(UserData.pass)) {
+		if (passlama.equals(UserData.pass)) {
 
 			try {
 				
 				String query = "UPDATE user SET password=? WHERE username=?";
 				statement = conn.prepareStatement(query);
-				statement.setString(1, passwordBaru);
+				statement.setString(1, passbaru);
 				statement.setString(2, UserData.user);
 				update = statement.executeUpdate();
 				
 				if(update == 1) {
-					UserData.pass = passwordBaru;
+					UserData.pass = passbaru;
 				}
 				
 			} catch (SQLException e) {
@@ -183,10 +177,8 @@ public class UserManager {
 	}
 	
 	public Integer resett(UserData userData) {	
-		
 		Integer reset = 0;
 		user = new User();
-		
 		try {
 			
 			String resett = "UPDATE user SET password=? WHERE username =?";
@@ -203,7 +195,7 @@ public class UserManager {
 		return reset;
 	}	
 	
-	//	Hapus akun
+	
 	public Integer deleteData() {
 		
 		Integer delete = 0;
@@ -258,32 +250,33 @@ public class UserManager {
 	//	Lihat users
 
 
-	public TreeMap<String, UserData> lihat() {
-		TreeMap<String, UserData> userList = new TreeMap<>();
-		
-		try {
-			
-			String query = "SELECT * FROM user";
-			stmt = conn.createStatement();
-			ResultSet result = stmt.executeQuery(query);
-			
-			while(result.next()){
-                userData = new UserData(
-                		result.getString("username"),
-						result.getString("login_terakhir"), 
-						result.getString("email"),
-						result.getString("password")
-                );
-                userList.put(result.getString("username"), userData);
-			}
-              
-			
-		} catch (SQLException e) {
-			System.out.println("Terjadi kesalahan");
-		}
-		
-		return userList;
-		
-		
-	}
+	  public ArrayList<UserData> getAll()
+	    {
+	        Statement statement;
+	        ArrayList<UserData> listData = new ArrayList<>();
+	        try {
+	            statement = conn.createStatement();
+	            String sql = "SELECT * FROM user";
+
+	            ResultSet result = statement.executeQuery(sql);
+
+	    		
+	            while(result.next()){
+	            	UserData userData = new UserData(
+	            			result.getString("username"),
+							result.getString("login_terakhir"), 
+							result.getString("email")
+	 
+	                );
+	            	listData.add(userData);
+	            	
+	            	}
+	            
+	        }catch(SQLException e){
+	            System.out.println("Terjadi Kesalahan. Cek Data");
+	            System.out.println(e.getMessage());
+	        }
+	        return listData;
+	    }
+
 }
