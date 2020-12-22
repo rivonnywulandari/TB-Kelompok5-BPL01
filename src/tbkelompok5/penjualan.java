@@ -18,7 +18,7 @@ public class penjualan {
     }
 
 	public String noresi() {
-		System.out.print("Noresi penjualan\t: ");
+		System.out.print("No Resi\t\t : ");
 		noresi = sc.nextLine();
 		return noresi;
 	}
@@ -37,7 +37,7 @@ public class penjualan {
     }
 
 	public int jumlah() {
-		System.out.print("Jumlah\t\t: ");
+		System.out.print("Jumlah\t\t : ");
 		jumlah = sc.nextInt();
 		return jumlah;
 	}

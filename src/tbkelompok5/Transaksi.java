@@ -235,23 +235,16 @@ public class Transaksi {
 			
 		penjualan penj = new penjualan();
 		Scanner sc = new Scanner (System.in);
-		penj.noresi();
-		
 		Date tgl = new Date();
 		SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-		System.out.println("Tanggal Transaksi\t : "+format.format(tgl));
-		String tanggal = String.valueOf(format.format(tgl));
-		
-		System.out.println("---Transaksi Penjualan---");
+		System.out.println("Tanggal\t : "+format.format(tgl));
+		penj.noresi();	
 		System.out.print("SKU Barang\t : ");
 		String sku_brg = sc.nextLine();
 		ResultSet rs1 = null;
 		String sql = "SELECT * FROM barang WHERE sku = '"+sku_brg+"'";
 		stmt=conn.createStatement();
-		 
-	     rs1=stmt.executeQuery(sql);
-		
-		
+	    rs1=stmt.executeQuery(sql);	
 		int sisabarang = 0;
 		int total=0;
 		int jual=0;
@@ -263,7 +256,7 @@ public class Transaksi {
 			System.out.println("Nama Barang\t : "+nama);
 		
 			if (stock>0 && penj.jumlah<stock) {
-				System.out.println("Harga Barang : Rp "+harga_jual);
+				System.out.println("Harga Barang\t : Rp "+harga_jual);
 				penj.jumlah();
 				sisabarang = Integer.valueOf(stock)-Integer.valueOf(penj.jumlah);
 				total = Integer.valueOf(harga_jual)*Integer.valueOf(penj.jumlah);
@@ -298,7 +291,7 @@ public class Transaksi {
 		}
 		}
 		catch (Exception e) {
-//			e.printStackTrace();
+
 		}
 Laman.tungguuu();
 	}

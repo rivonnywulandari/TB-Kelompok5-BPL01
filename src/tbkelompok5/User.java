@@ -64,13 +64,13 @@ public class User implements PengelolaanData {
 ////						System.out.println("Password gagal diperbarui");
 //					}
 
-					Laman.tungguuuuu();
+					
 
 			    }
 			
 			}
 		}
-
+Laman.tungguuuuu();
     	}
 
 	public String randomString() {
