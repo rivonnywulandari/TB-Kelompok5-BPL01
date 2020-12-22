@@ -37,7 +37,7 @@ public class RestockManager {
 	//	Menambah Stock Barang
 	public Integer restock(String sku, Integer restock) {
 		
-		Integer masuk = 0;
+		Integer stock = 0;
 		Restock rstck = new Restock();
 			
 		try {
@@ -53,12 +53,13 @@ public class RestockManager {
 				statement = conn.prepareStatement(query);
 				statement.setInt(1, result.getInt("stock") + restock);
 				statement.setString(2, sku);
-				masuk = statement.executeUpdate();
+				stock = statement.executeUpdate();
 				
 
 			} else {
 				
-				System.out.println("SKU Barang Tidak Tersedia, Restock Barang Gagal");
+				System.out.println("      > SKU Barang Tidak Tersedia, Restock Barang Gagal <      ");
+				System.out.println("---------------------------------------------------------------");
 				rstck.restock();
 				
 			}
@@ -66,10 +67,12 @@ public class RestockManager {
 		} catch (SQLException e) {
 			
 			System.out.println("Terjadi kesalahan");
+			rstck.restock();
 			
 		}
 		
-		return masuk;
+		return stock;
+		
 	}
 
 }

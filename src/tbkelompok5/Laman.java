@@ -84,7 +84,7 @@ public class Laman {
 			
 		} catch (InputMismatchException e) {
 			
-			System.out.println("Pilihan tidak tersedia");
+			System.out.println("Terjadi kesalahan");
 			lamanFasilitas();
 			
 		}

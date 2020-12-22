@@ -14,7 +14,7 @@ public class Restock {
 			
 		} catch (NullPointerException e) {
 			
-			System.out.println("Masukkan data terlebih dahulu");
+			System.out.println("Masukkan Data Terlebih Dahulu");
 			
 		}
 	}
@@ -27,20 +27,20 @@ public class Restock {
 		barang.lihat();
 		
 		System.out.println(" ");
-		System.out.println("-----------RESTOCK BARANG----------");
+		System.out.println("-------------------------RESTOCK BARANG------------------------");
 		
-		System.out.print("SKU \t\t: ");
-		String sku = scn.next().toUpperCase();
+		System.out.print("Masukkan SKU Yang Akan Di Restock : ");
+		String sku = scn.nextLine();
 		
-		System.out.print("Restock Barang \t: ");
+		System.out.print("Masukkan Jumlah Restock Barang    : ");
 		Integer restock = scn.nextInt();
 		
 		if(restock > 0) {
 			
 			if(restockManager.restock(sku, restock) > 0) {
 			
-				System.out.println("Restock Barang Berhasil ");
-				System.out.println("------------------------------------");
+				System.out.println("                  >  Restock Barang Berhasil  <                ");
+				System.out.println("---------------------------------------------------------------");
 				Laman.lamanFasilitas();
 			
 			}
@@ -49,8 +49,8 @@ public class Restock {
 		
 		else {
 			
-			System.out.println("Restock Barang Tidak Berhasil ");
-			System.out.println("------------------------------------");
+			System.out.println("                > Restock Barang Tidak Berhasil <              ");
+			System.out.println("---------------------------------------------------------------");
 			Laman.lamanFasilitas();
 		}
 		
