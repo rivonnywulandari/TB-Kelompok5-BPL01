@@ -46,7 +46,187 @@ public class Transaksi {
 		
 	}
 		
+	public void laporan_penjualan_bulanan()  {
+		Transaksi();
+		 ArrayList<TransaksiData> listTransaksi = new ArrayList<>();
+		 try{
+		String query = "SELECT barang.sku, barang.nama, SUM(IF(MONTH(transaksi.tanggal)=MONTH(now()), transaksi_detail.jumlah, 0)) AS jumlah, SUM(IF(MONTH(transaksi.tanggal)=MONTH(now()), transaksi_detail.harga, 0)) AS harga FROM transaksi INNER JOIN transaksi_detail ON transaksi.noresi=transaksi_detail.noresi INNER JOIN barang ON transaksi_detail.sku=barang.sku GROUP BY barang.nama;";
+		stmt = conn.createStatement();
+		ResultSet result = stmt.executeQuery(query);
+		
+		    		
+		            while(result.next()){
+		            	TransaksiData transaksiData = new TransaksiData(
+		            		result.getString("sku"),
+		                    result.getString("nama"),
+		                    result.getInt("jumlah"),
+		                    result.getInt("harga")
+		 
+		                );
+		            	listTransaksi.add(transaksiData);
+		            	}
+		            
+		            System.out.println("+----------------------------------------------------------------------+");
+		            System.out.println("|                        LAPORAN PENJUALAN BULANAN                     |");
+		            System.out.println("+----------------------------------------------------------------------+");
 
+		            System.out.print("SKU");
+		            System.out.print("\t\t");
+		            System.out.print("Nama Barang");
+		            System.out.print("\t\t");
+		            System.out.print("Jumlah");
+		            System.out.print("\t\t");
+		            System.out.println("Total Penjualan");
+		        
+			        
+			   for(TransaksiData transaksiData : listTransaksi) {
+				   
+				   System.out.print(transaksiData.sku);
+				   System.out.print("\t\t");
+				   System.out.print(transaksiData.nama);
+				   System.out.print("\t\t");
+				   System.out.print(transaksiData.jumlah);
+				   System.out.print("\t\t");
+				   System.out.println(transaksiData.harga);
+				   
+			   }
+			   System.out.println("+----------------------------------------------------------------------+");
+
+		        
+				
+			} catch (SQLException e) {
+				System.out.println("Terjadi kesalahan pada query data");
+		} 
+			
+ }
+	
+	public void laporan_penjualan_harian()  {
+		Transaksi();
+		 ArrayList<TransaksiData> listTransaksi = new ArrayList<>();
+		 try{
+		String query = "SELECT barang.sku, barang.nama, SUM(IF(DATE(transaksi.tanggal)=DATE(now()), transaksi_detail.jumlah, 0)) AS jumlah, SUM(IF(DATE(transaksi.tanggal)=DATE(now()), transaksi_detail.harga, 0)) AS harga FROM transaksi INNER JOIN transaksi_detail ON transaksi.noresi=transaksi_detail.noresi INNER JOIN barang ON transaksi_detail.sku=barang.sku GROUP BY barang.nama;";
+		stmt = conn.createStatement();
+		ResultSet result = stmt.executeQuery(query);
+		
+		    		
+		            while(result.next()){
+		            	TransaksiData transaksiData = new TransaksiData(
+		            		result.getString("sku"),
+		                    result.getString("nama"),
+		                    result.getInt("jumlah"),
+		                    result.getInt("harga")
+		 
+		                );
+		            	listTransaksi.add(transaksiData);
+		            	}
+		            
+		            System.out.println("+----------------------------------------------------------------------+");
+		            System.out.println("|                         LAPORAN PENJUALAN HARIAN                     |");
+		            System.out.println("+----------------------------------------------------------------------+");
+
+		            System.out.print("SKU");
+		            System.out.print("\t\t");
+		            System.out.print("Nama Barang");
+		            System.out.print("\t\t");
+		            System.out.print("Jumlah");
+		            System.out.print("\t\t");
+		            System.out.println("Total Penjualan");
+		        
+			        
+			   for(TransaksiData transaksiData : listTransaksi) {
+				   
+				   System.out.print(transaksiData.sku);
+				   System.out.print("\t\t");
+				   System.out.print(transaksiData.nama);
+				   System.out.print("\t\t");
+				   System.out.print(transaksiData.jumlah);
+				   System.out.print("\t\t");
+				   System.out.println(transaksiData.harga);
+				   
+			   }
+			   System.out.println("+----------------------------------------------------------------------+");
+
+		        
+				
+			} catch (SQLException e) {
+				System.out.println("Terjadi kesalahan pada query data");
+		} 
+			
+ }
+	
+	 
+	  public void laporan_keuntungan_bulanan() {
+		  Transaksi();
+			Integer untung = 0;
+			
+			try {
+				
+				
+				
+				String query = "SELECT transaksi.tanggal, barang.nama,SUM(IF(MONTH(transaksi.tanggal)=MONTH(now()), transaksi_detail.jumlah, 0)) AS jumlah,SUM(IF(MONTH(transaksi.tanggal)=MONTH(now()), transaksi_detail.harga, 0)) AS harga, barang.harga_beli, barang.harga_jual FROM transaksi INNER JOIN transaksi_detail  ON transaksi.noresi=transaksi_detail.noresi INNER JOIN barang ON transaksi_detail.sku=barang.sku GROUP BY barang.nama;";
+				stmt = conn.createStatement();
+				ResultSet resultt = stmt.executeQuery(query);
+				while(resultt.next()) {
+					
+					untung += (resultt.getInt("jumlah") * (resultt.getInt("harga_jual")-resultt.getInt("harga_beli")));
+					
+				}
+			
+				
+				System.out.println(" ");
+				
+				System.out.println("+---------------------------------+");
+				System.out.println("|   LAPORAN KEUNTUNGAN BULANAN    |");
+				System.out.println("+---------------------------------+");
+
+				System.out.println("Untung bulan ini = " + untung);
+				System.out.println("+---------------------------------+");
+
+
+				
+				
+				
+			} catch (SQLException e) {
+				System.out.println("Terjadi kesalahan pada query data");
+			} 
+		  
+	  }
+	
+	  public void laporan_keuntungan_harian() {
+		  Transaksi();
+			Integer untung = 0;
+			
+			try {
+				
+				
+				
+				String query = "SELECT barang.nama,SUM(IF(DATE(transaksi.tanggal)=DATE(now()), transaksi_detail.jumlah, 0)) AS jumlah,SUM(IF(DATE(transaksi.tanggal)=DATE(now()), transaksi_detail.harga, 0)) AS harga, SUM(IF(DATE(transaksi.tanggal)=DATE(now()), barang.harga_beli, 0)) AS harga_beli, SUM(IF(DATE(transaksi.tanggal)=DATE(now()), barang.harga_jual, 0)) AS harga_jual FROM transaksi INNER JOIN transaksi_detail  ON transaksi.noresi=transaksi_detail.noresi INNER JOIN barang ON transaksi_detail.sku=barang.sku GROUP BY barang.nama;";
+				stmt = conn.createStatement();
+				ResultSet resultt = stmt.executeQuery(query);
+				while(resultt.next()) {
+					
+					untung += (resultt.getInt("jumlah") * (resultt.getInt("harga_jual")-resultt.getInt("harga_beli")));
+					
+				}
+			
+				
+				System.out.println(" ");
+				
+				System.out.println("+---------------------------------+");
+				System.out.println("|   LAPORAN KEUNTUNGAN HARIAN   |");
+				System.out.println("+---------------------------------+");
+
+				System.out.println("Untung hari ini = " + untung);
+				System.out.println("+---------------------------------+");
+
+
+				
+				
+			} catch (SQLException e) {
+				System.out.println("Terjadi kesalahan pada query data");
+			} 
+		  
+	  }
 
 	
 	public  void penjualan()  {

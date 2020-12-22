@@ -23,7 +23,7 @@ public class Laman {
 		System.out.println("+------------------------------+");
 		System.out.println("| 1. Login     | 2. Register   |");
 		System.out.println("+==============================+");
-		System.out.print("Masukkan Pilihan ('1'|'2') : ");
+		System.out.print("Masukkan Pilihan (1/2) : ");
 		pilihan = scn.nextInt();
 		
 		return pilihan;
@@ -41,7 +41,7 @@ public class Laman {
 		System.out.println("| 5. Fasilitas Laporan                                |");
 		System.out.println("| 6. Logout                                           |");
 		System.out.println("+-----------------------------------------------------+");
-		System.out.print("Masukkan Pilihan ('1'|'2'|'3'|'4'|'5'|'6') : ");
+		System.out.print("Masukkan Pilihan (1/2/3/4/5/6): ");
 		
 		try {
 			
@@ -96,7 +96,7 @@ public class Laman {
 		System.out.println("| 4. Cari Akun User               |");
 		System.out.println("| 5. Menu Utama                   |");
 		System.out.println("+---------------------------------+");
-		System.out.print("Masukkan Pilihan ('1'|'2'|'3'|'4'): ");
+		System.out.print("Masukkan Pilihan (1/2/3/4/5): ");
 		
 		User user = new User();
 		
@@ -215,8 +215,96 @@ public class Laman {
 	}
 
 	public static void pengelolaanLaporan(){
-	
+		Integer option,option1,option2 = 0;
+		Scanner in = new Scanner (System.in);
+		
+			do {
+				System.out.print("\n");
+				System.out.println("+---------------------------------+");
+				System.out.println("|       FASILITAS LAPORAN         |");
+				System.out.println("+---------------------------------+");
+				System.out.println("| 1. Laporan Penjualan            |");
+				System.out.println("| 2. Laporan Keuntungan           |");
+				System.out.println("| 3. Menu Utama                   |");
+				System.out.println("+---------------------------------+");
+				System.out.print("Masukkan Pilihan (1/2/3): ");
+				option = Integer.parseInt(in.nextLine());
+				Transaksi transaksi = new Transaksi();
+				switch(option) {
+				case 1:
+					System.out.print("\n");
+					System.out.println("+---------------------------------+");
+					System.out.println("|        LAPORAN PENJUALAN        |");
+					System.out.println("+---------------------------------+");
+					System.out.println("| 1. Laporan Penjualan Bulanan    |");
+					System.out.println("| 2. Laporan Penjualan Harian     |");
+					System.out.println("| 3. Menu Utama                   |");
+					System.out.println("+---------------------------------+");
+					System.out.print("Masukkan Pilihan (1/2/3): ");
+					option1 = Integer.parseInt(in.nextLine());
+					
+					switch(option1) {
+					case 1:
+						
+						transaksi.laporan_penjualan_bulanan();
+						break;
+					case 2:
+						transaksi.laporan_penjualan_harian();
+						break;
+					case 3:
+						Laman.lamanFasilitas();
+						break;
+					default:
+						System.out.println("Input Tidak Valid");
+						
+					}
+					tungguuu();
+					
+					break;
+				case 2:
+					System.out.print("\n");
+					System.out.println("+---------------------------------+");
+					System.out.println("|       LAPORAN KEUNTUNGAN        |");
+					System.out.println("+---------------------------------+");
+					System.out.println("| 1. Laporan Keuntungan Bulanan   |");
+					System.out.println("| 2. Laporan Keuntungan Harian    |");
+					System.out.println("| 3. Menu Utama                   |");
+					System.out.println("+---------------------------------+");
+					System.out.print("Masukkan Pilihan (1/2/3): ");
+					option2 = Integer.parseInt(in.nextLine());
+					switch(option2) {
+					case 1:
+						
+						transaksi.laporan_keuntungan_bulanan();
+						break;
+					case 2:
+						transaksi.laporan_keuntungan_harian();
+						break;
+					case 3:
+						Laman.lamanFasilitas();
+						break;
+					default:
+						System.out.println("Input Tidak Valid");
+						
+					}
+					tungguuu();
+					
+					break;
+				case 3:
+					Laman.lamanFasilitas();
+					break;
+				default:
+					System.out.println("Input Tidak Valid");
+					
+				}
+				tungguuu();
+			
+			} while (option !=0);
 		}
+
+	
+
+	
 
 //	public static void pengelolaanLaporan(){
 //		Transaksi transaksi = new Transaksi();
@@ -278,6 +366,21 @@ public class Laman {
         	System.out.print("\nKlik Enter Untuk Lanjut");
         	String lanjut = (bufferedReader.readLine());
 			pengelolaanLaporan();
+    		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void tungguuuuu() {
+		
+		InputStreamReader streamReader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(streamReader);
+        
+        try {
+        	System.out.print("\nKlik Enter Untuk Lanjut");
+        	String lanjut = (bufferedReader.readLine());
+			lamanUtama();
     		
 		} catch (Exception e) {
 			e.printStackTrace();

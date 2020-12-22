@@ -42,19 +42,31 @@ public class Barang implements PengelolaanData{
 		System.out.print("Stock: ");
 		Integer stock = Integer.parseInt(scn.nextLine());
 		
+		if(stock > 0) {
+		
 		System.out.print("Harga Beli: Rp");
 		Integer harga_beli = Integer.parseInt(scn.nextLine());
 		
+		if(harga_beli > 0) {
 		System.out.print("Harga Jual: Rp");
 		Integer harga_jual = Integer.parseInt(scn.nextLine());
 		
+		if(harga_jual> 0) {
 		BarangData barangData = new BarangData(sku, nama, stock, harga_beli, harga_jual);
 		
 		if(barangManager.tambahBarang(barangData) > 0) {
 			System.out.println("Barang berhasil ditambahkan");
 
 		}
-		
+		}else {
+			System.out.print("Masukkan nilai dengan benar");
+		}
+		}else {
+			System.out.print("Masukkan nilai dengan benar");
+		}
+		}else {
+			System.out.print("Masukkan nilai dengan benar");
+		}
 	}
 
 	@Override

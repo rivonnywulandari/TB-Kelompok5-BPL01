@@ -216,7 +216,7 @@ public class UserManager {
 	}
 	
 	
-	//	Cari data user
+	
 	public ArrayList<UserData> search(String search){
 		
 		ArrayList<UserData> searchList = new ArrayList<>();
@@ -247,7 +247,7 @@ public class UserManager {
 	}
 	
 	
-	//	Lihat users
+	
 
 
 	  public ArrayList<UserData> getAll()

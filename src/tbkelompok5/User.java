@@ -57,16 +57,17 @@ public class User implements PengelolaanData {
 				System.out.println("3 kesempatan telah terpakai");
 				
 			        
-					if(userManager.resett(userData) == 1) {
-						System.out.println("Password berhasil diperbarui");
-						Laman.lamanFasilitas();
-					} else { 
-//						System.out.println("Password gagal diperbarui");
-					}
+//					if(userManager.resett(userData) == 1) {
+//						System.out.println("Password berhasil diperbarui");
+//						Laman.lamanFasilitas();
+//					} else { 
+////						System.out.println("Password gagal diperbarui");
+//					}
 
-					Laman.lamanUtama();	
+					Laman.tungguuuuu();
 
 			    }
+			
 			}
 		}
 
